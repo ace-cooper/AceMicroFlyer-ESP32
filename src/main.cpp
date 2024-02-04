@@ -11,20 +11,29 @@ void setup() {
 }
 
 void loop() {
+    motorA.setPower(20);
+    Serial.println("Motor A power set to: 20");
+    delay(5000); 
+    motorA.setPower(0);
+    motorB.setPower(20);
+    Serial.println("Motor B power set to: 20");
+    delay(5000); 
+    motorB.setPower(0);
     motorC.setPower(20);
-    Serial.print("Motor power set to: ");
-    Serial.println(20);
+    Serial.println("Motor C power set to: 20");
     delay(5000); 
+    motorC.setPower(0);
+    motorD.setPower(20);
+    Serial.println("Motor D power set to: 20");
+    delay(5000);
+    motorA.setPower(40);
+    motorB.setPower(40);
     motorC.setPower(40);
-    Serial.print("Motor power set to: ");
-    Serial.println(40);
-    delay(5000); 
-    motorC.setPower(60);
-    Serial.print("Motor power set to: ");
-    Serial.println(60);
-    delay(5000); 
-    motorC.setPower(80);
-    Serial.print("Motor power set to: ");
-    Serial.println(80);
-    delay(5000); 
+    motorD.setPower(40);
+    Serial.println("All motors power set to: 40");
+    delay(5000);
+    motorA.setPower(0);
+    motorB.setPower(0);
+    motorC.setPower(0);
+    motorD.setPower(0);
 }
