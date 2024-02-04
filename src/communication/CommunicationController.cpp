@@ -1,6 +1,6 @@
 #include "CommunicationController.h"
 #include "WiFiLogic.h" 
-#include "BluetoothLogic.h" 
+// #include "BluetoothLogic.h" 
 
 CommunicationController::CommunicationController(String _mode) {
     mode = _mode;
@@ -12,7 +12,7 @@ void CommunicationController::init(DataReceivedCallback callback) {
     if (String(mode) == "WIFI") {
         communication = new WiFiLogic();
     } else if (String(mode) == "BLUETOOTH") {
-        communication = new BluetoothLogic();
+        // communication = new BluetoothLogic();
     }
 
     if (communication != nullptr) {

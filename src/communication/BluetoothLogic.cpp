@@ -2,20 +2,21 @@
 
 void BluetoothLogic::init(DataReceivedCallback callback) {
     this->onDataReceived = callback;
-    // SerialBT.begin("AceMicroFlyer");
+ 
     BLEDevice::init("AceMicroFlyer");
 
     BLEServer * pServer = BLEDevice::createServer();
 
     BLEService * pService = pServer->createService("123abc45-6789-0123-4567-89abcdef0000");
 
-    BLECharacteristic * pCharacteristic = pService->createCharacteristic (
+    BLECharacteristic * _pCharacteristic = pService->createCharacteristic (
         "beb5483e-36e1-4688-b7f5-ea07361b26a8",
         BLECharacteristic::PROPERTY_READ |
         BLECharacteristic::PROPERTY_WRITE
     );
 
-    // BLECharacteristic->setCallbacks (novo MyCallbacks());
+    this->pCharacteristic = _pCharacteristic;
+    // pCharacteristic->setCallbacks(new BluetoothCallback(callback));
 
     // BLECharacteristic->setValue("Olá Mundo");
 
@@ -27,11 +28,13 @@ void BluetoothLogic::init(DataReceivedCallback callback) {
 }
 
 void BluetoothLogic::loop() {
-    // if (SerialBT.available()) { 
-    //     CommunicationData data;
-    //     if (SerialBT.readBytes((char*)&data, sizeof(data)) == sizeof(data)) {
-            
-    //         onDataReceived(data);
-    //     }
-    // }
+   std::string value = this->pCharacteristic->getValue();
+   if (value.length() > 0) {
+    //    CommunicationData data;
+    //    data.action = value[0];
+    //    data.value = atof(value.substr(1).c_str());
+    //    if(onDataReceived != nullptr) {
+    //        onDataReceived(data);
+    //    }
+   }
 }

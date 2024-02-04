@@ -12,7 +12,7 @@ class BluetoothLogic : public CommunicationLogicInterface {
 private:
     // BluetoothSerial SerialBT;
     DataReceivedCallback onDataReceived = nullptr;
-
+    BLECharacteristic * pCharacteristic = nullptr;
 public:
     void init(DataReceivedCallback callback) override;
     void loop() override;
