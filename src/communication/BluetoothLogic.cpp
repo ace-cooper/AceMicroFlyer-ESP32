@@ -18,8 +18,6 @@ void BluetoothLogic::init(DataReceivedCallback callback) {
     this->pCharacteristic = _pCharacteristic;
     // pCharacteristic->setCallbacks(new BluetoothCallback(callback));
 
-    // BLECharacteristic->setValue("Olá Mundo");
-
     pService->start();
 
     BLEAdvertising * pAdvertising = pServer->getAdvertising();

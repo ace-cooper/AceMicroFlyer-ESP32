@@ -1,7 +1,7 @@
 #ifndef CommunicationData_h
 #define CommunicationData_h
 
-#include <Arduino.h> // Include the necessary header file for the String class
+#include <Arduino.h>
 
 struct CommunicationData {
     unsigned long timestamp;
