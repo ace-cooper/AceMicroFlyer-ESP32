@@ -13,12 +13,14 @@ Despite being aware of the limitations of using Bluetooth for communication, the
 - 1x ESP32-C3 Mini (Microcontroller)
 - 1x MPU9250 (Accelerometer, Gyroscope, Magnetometer)
 - 4x 2N2222 NPN B331 Transistor (Motor Driver)
-- 1x 3.7V 750mAh LiPo Battery
+- 1x 3.7V 380mAh LiPo Battery
 - 4x 8520 Coreless Motor (2x CW, 2x CCW)
 - 4x 55mm Blade Propeller (2x CW, 2x CCW)
 - 1x Carbon Fiber Mini Drone Frame
 
-- 1x Type-C Micro Mini 5V1A 18650 TP4056 Lithium Battery Charger Module
+- 1x Type-C Micro Mini 5V1A 18650 TP4056 Lithium Battery Charger Module* (Just to charge the battery)
 
 ### Development Environment 💻
 I'm using vscode with PlatformIO. 
+
+![Cover](./assets/components.jpg "Cover image")
