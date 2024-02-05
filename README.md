@@ -24,3 +24,4 @@ Despite being aware of the limitations of using Bluetooth for communication, the
 I'm using vscode with PlatformIO. 
 
 ![Cover](./assets/components.jpg "Cover image")
+**Note:** The image above is a representation of the components used in the project, but it's missing the MPU9250. The actual components may vary.
