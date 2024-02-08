@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "motor/MotorController.h"
 #include "communication/CommunicationController.h"
+// #include "flight/FlightController.h"
 
 MotorController motorA(5); 
 MotorController motorB(6);
@@ -8,6 +9,8 @@ MotorController motorC(7);
 MotorController motorD(8);
 
 CommunicationController communication("BLUETOOTH");
+
+// FlightController flightController(&motorA, &motorB, &motorC, &motorD);
 
 void onDataReceived(CommunicationData data) {
 
@@ -39,10 +42,13 @@ void setup() {
   Serial.begin(115200);
 
   communication.init(onDataReceived);
+  // flightController.init();
 }
 
 void loop() {
     
     communication.loop();
-
+    // flightController.loop();
+    Serial.println("Loop");
+    delay(50);
 }
