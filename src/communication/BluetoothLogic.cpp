@@ -48,20 +48,19 @@ std::string base64_decode(std::string const& encoded_string) {
     return ret;
 }
 
-
 class ServerCallbacks: public BLEServerCallbacks {
     void onConnect(BLEServer* pServer) {
-        BLEDevice::stopAdvertising();
+        BLEDevice::stopAdvertising();             
     };
 
     void onDisconnect(BLEServer* pServer) {
-      BLEDevice::startAdvertising();
+        BLEDevice::startAdvertising();
     }
 };
 
 void BluetoothLogic::init(DataReceivedCallback callback) {
-    pinMode(2, OUTPUT);
-    pinMode(4, OUTPUT);
+    // pinMode(2, OUTPUT);
+    // pinMode(4, OUTPUT);
 
     this->onDataReceived = callback;
  
@@ -103,25 +102,13 @@ void BluetoothLogic::loop() {
         led = !led;
         delay(200);
     }
-     if (value == "1") {
-        digitalWrite(2, HIGH);
-        digitalWrite(4, HIGH);
-     } else if (value == "2") {
-        digitalWrite(2, LOW);
-        digitalWrite(4, LOW);
-     } else if (value == "3") {
-        digitalWrite(2, HIGH);
-        digitalWrite(4, LOW);
-     } else if (value == "4") {
-        digitalWrite(2, LOW);
-        digitalWrite(4, HIGH);
-     } 
-     delay(2500);
-    //    CommunicationData data;
-    //    data.action = value[0];
-    //    data.value = atof(value.substr(1).c_str());
-    //    if(onDataReceived != nullptr) {
-    //        onDataReceived(data);
-    //    }
+    CommunicationData data;
+    data.action = value.substr(0, 2).c_str();
+    data.value = value.substr(3).c_str();
+    if(onDataReceived != nullptr) {
+        onDataReceived(data);
+    }
    }
 }
+
+

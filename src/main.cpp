@@ -3,44 +3,53 @@
 #include "communication/CommunicationController.h"
 // #include "flight/FlightController.h"
 
-MotorController motorA(5); 
-MotorController motorB(6);
-MotorController motorC(7);
-MotorController motorD(8);
+MotorController motorFL(5); 
+MotorController motorFR(6);
+MotorController motorBL(7);
+MotorController motorBR(8);
 
 CommunicationController communication("BLUETOOTH");
 
-// FlightController flightController(&motorA, &motorB, &motorC, &motorD);
+// FlightController flightController(&motorFL, &motorFR, &motorBL, &motorBR);
 
 void onDataReceived(CommunicationData data) {
 
-    int motorPower[4];
-    int i = 0;
-    for (char power : data.value) {
-      motorPower[i] = String(power).toInt();
-      i++;
-    }
+        digitalWrite(2, HIGH);
+        digitalWrite(4, HIGH);
 
-    Serial.print("Motor Power: ");
-    Serial.print(motorPower[0]);
-    Serial.print(", ");
-    Serial.print(motorPower[1]);
-    Serial.print(", ");
-    Serial.print(motorPower[2]);
-    Serial.print(", ");
-    Serial.println(motorPower[3]);
+        delay(3000);
+
+        digitalWrite(2, LOW);
+        digitalWrite(4, LOW);
+    // int motorPower[4];
+    // int i = 0;
+    // for (char power : data.value) {
+    //   motorPower[i] = String(power).toInt();
+    //   i++;
+    // }
+
+    // Serial.print("Motor Power: ");
+    // Serial.print(motorPower[0]);
+    // Serial.print(", ");
+    // Serial.print(motorPower[1]);
+    // Serial.print(", ");
+    // Serial.print(motorPower[2]);
+    // Serial.print(", ");
+    // Serial.println(motorPower[3]);
     
-    motorA.setPower(motorPower[0]);
-    motorB.setPower(motorPower[1]);
-    motorC.setPower(motorPower[2]);
-    motorD.setPower(motorPower[3]);
+    
+    // motorFL.setPower(motorPower[0]);
+    // motorFR.setPower(motorPower[1]);
+    // motorBL.setPower(motorPower[2]);
+    // motorBR.setPower(motorPower[3]);
 
 
 }
 
 void setup() {
   Serial.begin(115200);
-
+  pinMode(2, OUTPUT);
+  pinMode(4, OUTPUT);
   communication.init(onDataReceived);
   // flightController.init();
 }

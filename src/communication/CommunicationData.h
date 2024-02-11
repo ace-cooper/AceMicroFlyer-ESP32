@@ -5,7 +5,7 @@
 
 struct CommunicationData {
     unsigned long timestamp;
-    char* action;
+    String action;
     String value;
 };
 
